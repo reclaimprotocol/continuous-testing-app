@@ -1,14 +1,22 @@
 # Run
 ```
-npm install
+$ npm install
 ```
 
 ```
-npm start
+$ cat > ./secrets.json
+{
+    "RECLAIM_APP_ID": "0x...",
+    "RECLAIM_APP_SECRET": "0x..."
+}
 ```
 
 ```
-npm run android
+$ npm start
+```
+
+```
+$ npm run android
 ```
 
 # Build
