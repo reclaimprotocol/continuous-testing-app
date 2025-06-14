@@ -10,22 +10,27 @@ import { useState } from 'react';
 import { ReclaimVerification } from '@reclaimprotocol/inapp-rn-sdk';
 import secrets from './secrets.json';
 
-const test_provider_id = '6d3f6753-7ee6-49ee-a545-62f1b1822ae5';
 
 const reclaimVerification = new ReclaimVerification();
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
   const [inputText, setInputText] = useState('');
-  const [submittedText, setSubmittedText] = useState('');
+  const [statusText, setStatusText] = useState('');
 
   const handleSubmit = async () => {
-    const verificationResult = await reclaimVerification.startVerification({
-      appId: secrets.RECLAIM_APP_ID,
-      secret: secrets.RECLAIM_APP_SECRET,
-      providerId: test_provider_id,
-    });
-    console.log(verificationResult);
+    try{
+      const verificationResult = await reclaimVerification.startVerification({
+        appId: secrets.RECLAIM_APP_ID,
+        secret: secrets.RECLAIM_APP_SECRET,
+        providerId: inputText,
+      });
+      console.log(verificationResult);
+      setStatusText(`Test successful at ${new Date().toISOString()}`);
+    } catch (error) {
+      console.error(error);
+      setStatusText(`Test FAILED at ${new Date().toISOString()}`);
+    }
   };
 
   return (
@@ -33,20 +38,21 @@ function App() {
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <Text>Welcome</Text>
       <TextInput
+        testID='input-text'
         style={styles.input}
         value={inputText}
         onChangeText={setInputText}
-        placeholder="Enter text here"
+        placeholder="Enter Provider ID here"
         placeholderTextColor="#666"
       />
       <Button
         testID='submit-button'
-        title="Submit"
+        title="Test"
         onPress={handleSubmit}
       />
-      {submittedText ? (
+      {statusText ? (
         <Text style={styles.submittedText}>
-          Submitted text: {submittedText}
+          {statusText}
         </Text>
       ) : null}
     </View>

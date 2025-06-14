@@ -19,10 +19,13 @@ describe('Providers', () => {
     });
 
     it('should tap open button', async () => {
-        await waitFor(element(by.text('Welcome'))) // or any text you know exists
+        await waitFor(element(by.id('input-text'))) // or any text you know exists
         .toBeVisible()
         .withTimeout(10000);
         await element(by.id('submit-button')).tap();
+        await new Promise(resolve => setTimeout(resolve, 10000));
+
+
     });
 });
   
