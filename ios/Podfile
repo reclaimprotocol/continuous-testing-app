@@ -14,22 +14,6 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'InappRnSdkExample' do
-  config = use_native_modules!
- 
-  use_react_native!(
-    :path => config[:reactNativePath],
-    :app_path => "#{Pod::Config.instance.installation_root}/.."
-  )
- 
-  # This is the line that you may need to add in your podfile.
-  pod 'ReclaimInAppSdk', '~> 0.6.0'
- 
-  pre_install do |installer|
-    system("cd ../../ && npx bob build --target codegen")
-  end
-end
-
 target 'automated_testing' do
   config = use_native_modules!
 
