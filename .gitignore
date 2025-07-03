@@ -21,6 +21,7 @@ xcuserdata
 *.xccheckout
 *.moved-aside
 DerivedData
+DerivedDataWorkaround/
 *.hmap
 *.ipa
 *.xcuserstate
