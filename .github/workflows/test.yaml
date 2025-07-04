@@ -28,7 +28,8 @@ jobs:
           java-version: 17
 
       - name: Add Secrets
-        run: 'cat > ./secrets.json { "RECLAIM_APP_ID": "${{ secrets.RECLAIM_APP_ID }}", "RECLAIM_APP_SECRET": "${{ secrets.RECLAIM_APP_SECRET }}" }'
+        run: |
+          echo '{"RECLAIM_APP_ID": "${{ secrets.RECLAIM_APP_ID }}", "RECLAIM_APP_SECRET": "${{ secrets.RECLAIM_APP_SECRET }}"}' >> secrets.json
 
       - name: Npm install
         run: npm install
