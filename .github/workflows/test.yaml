@@ -43,9 +43,9 @@ jobs:
       - name: Run Detox tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 31
+          api-level: 36
           arch: x86_64
-          avd-name: Android_API31
+          avd-name: Medium_Phone_API_36.0
           force-avd-creation: false
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -no-metrics
           disable-animations: false
