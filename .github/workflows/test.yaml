@@ -1,0 +1,33 @@
+name: Run Detox Tests
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test-android:
+    name: Android - Build and run Detox tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: zulu
+          java-version: 17
+
+      - name: Npm install
+        run: npm install
+
+      - name: Build Detox
+        run: npm run detox:android:build

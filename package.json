@@ -8,7 +8,7 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "e2e:build": "detox build -c android.emu.debug",
+    "detox:android:build": "detox build -c android.emu.debug",
     "e2e:test": "detox test -c android.emu.debug"
   },
   "dependencies": {
