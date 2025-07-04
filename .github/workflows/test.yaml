@@ -24,8 +24,7 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          distribution: zulu
-          java-version: 17
+          java-version: 23
 
       - name: Add Secrets
         run: |
@@ -43,7 +42,7 @@ jobs:
       - name: Run Detox tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 31
+          api-level: 36
           arch: x86_64
           avd-name: Medium_Phone_API_36.0
           force-avd-creation: false
