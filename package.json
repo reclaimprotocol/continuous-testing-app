@@ -9,7 +9,7 @@
     "detox:start": "E2E_TESTS='true' react-native start",
     "test": "jest",
     "detox:android:build": "detox build -c android.emu.debug",
-    "detox:android:test:ci": "detox test --configuration android.emu.debug --headless --record-logs failing --record-videos failing --take-screenshots failing",
+    "detox:android:test:ci": "detox test --configuration android.emu.debug --headless --loglevel verbose --record-logs failing --record-videos failing --take-screenshots failing",
     "e2e:test": "detox test -c android.emu.debug"
   },
   "dependencies": {
