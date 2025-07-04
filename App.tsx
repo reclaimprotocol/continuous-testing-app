@@ -16,7 +16,7 @@ const reclaimVerification = new ReclaimVerification();
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
   const [inputText, setInputText] = useState('');
-  const [statusText, setStatusText] = useState('');
+  const [statusResult, setStatusResult] = useState<'success' | 'fail'>();
 
   const handleSubmit = async () => {
     try{
@@ -26,10 +26,10 @@ function App() {
         providerId: inputText,
       });
       console.log(verificationResult);
-      setStatusText(`Test successful at ${new Date().toISOString()}`);
+      setStatusResult('success')
     } catch (error) {
       console.error(error);
-      setStatusText(`Test FAILED at ${new Date().toISOString()}`);
+      setStatusResult('fail')
     }
   };
 
@@ -50,9 +50,9 @@ function App() {
         title="Test"
         onPress={handleSubmit}
       />
-      {statusText ? (
-        <Text style={styles.submittedText}>
-          {statusText}
+      {statusResult ? (
+        <Text testID={statusResult + '-text'} style={styles.submittedText}>
+          Test {statusResult}
         </Text>
       ) : null}
     </View>
