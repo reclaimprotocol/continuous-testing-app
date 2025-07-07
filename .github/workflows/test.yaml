@@ -51,10 +51,11 @@ jobs:
       - name: Run Detox tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 35
+          api-level: Baklava
           arch: x86_64
+          profile: Pixel_8a
           avd-name: Medium_Phone_API_36.0
           force-avd-creation: false
-          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -no-metrics
+          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -no-metrics -cores 2
           disable-animations: false
           script: npm run detox:android:test:ci
