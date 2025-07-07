@@ -8,7 +8,6 @@ export async function injectUtilsIntoWebview(webview) {
 		60_000
 	)
 	await bodyElm.runScript(_injectUtilsIntoWindow.toString())
-	console.log(injectGetOtpFnIntoWindow.toString())
 	await bodyElm.runScript(injectGetOtpFnIntoWindow.toString())
 }
 
