@@ -8,7 +8,7 @@ PODS:
   - hermes-engine (0.80.0):
     - hermes-engine/Pre-built (= 0.80.0)
   - hermes-engine/Pre-built (0.80.0)
-  - InappRnSdk (0.10.0):
+  - InappRnSdk (0.10.1):
     - boost
     - DoubleConversion
     - fast_float
@@ -2152,7 +2152,7 @@ PODS:
     - React-perflogger (= 0.80.0)
     - React-utils (= 0.80.0)
     - SocketRocket
-  - ReclaimInAppSdk (0.10.0)
+  - ReclaimInAppSdk (0.10.2)
   - RNFS (2.20.0):
     - React-Core
   - RNSnackbar (2.9.0):
@@ -2405,7 +2405,7 @@ SPEC CHECKSUMS:
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
   glog: 5683914934d5b6e4240e497e0f4a3b42d1854183
   hermes-engine: 7068e976238b29e97b3bafd09a994542af7d5c0b
-  InappRnSdk: e27c10131e6853489644f0b4bbd3ad572705a71b
+  InappRnSdk: 73e817a56342a1a2e36ab3dac21aa7c4ace21ed6
   RCT-Folly: 846fda9475e61ec7bcbf8a3fe81edfcaeb090669
   RCTDeprecation: ff787f6c860a1b97dd1bc27264b61d23ad1994da
   RCTRequired: 664eb8399ed8a83e26ab65af7c2ad390f7e61696
@@ -2470,7 +2470,7 @@ SPEC CHECKSUMS:
   ReactAppDependencyProvider: 3267432b637c9b38e86961b287f784ee1b08dde0
   ReactCodegen: 5d41e1df061200130dd326e55cdfdf94b0289c6e
   ReactCommon: b028d09a66e60ebd83ca59d8cc9a1216360db147
-  ReclaimInAppSdk: 02642d4ff2701bfa841eec8fa2c7f99173db0c76
+  ReclaimInAppSdk: 6dceb502ae7c43de1b6d6769bc65460ee01056e5
   RNFS: 89de7d7f4c0f6bafa05343c578f61118c8282ed8
   RNSnackbar: c1b235eb606b03938c693ce769ed3059c31dff9b
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
