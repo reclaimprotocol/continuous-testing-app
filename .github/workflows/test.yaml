@@ -35,7 +35,9 @@ jobs:
         run: npm install
 
       - name: Build Detox
-        run: npm run detox:android:build
+        run: |
+          cd android && ./gradlew clean && cd ..
+          npm run detox:android:build
 
       - name: Start Metro
         run: npm run detox:start &
