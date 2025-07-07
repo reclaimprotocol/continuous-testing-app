@@ -48,14 +48,18 @@ jobs:
       - name: Start Metro
         run: npm run detox:start &
 
-      - name: Run Detox tests
+      - name: Setup Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 35
           arch: x86_64
+          target: playstore
           profile: Pixel_8a
           avd-name: Medium_Phone_API_36.0
           force-avd-creation: false
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -no-metrics -cores 2
           disable-animations: false
-          script: npm run detox:android:test:ci
+          script: adb devices
+
+      - name: Run Detox Tests
+        run: npm run detox:android:test:ci
