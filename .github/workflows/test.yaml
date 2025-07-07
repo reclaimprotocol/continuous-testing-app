@@ -51,7 +51,7 @@ jobs:
       - name: Run Detox tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: Baklava
+          api-level: 35
           arch: x86_64
           profile: Pixel_8a
           avd-name: Medium_Phone_API_36.0
