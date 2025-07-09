@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@react-native/new-app-screen": "0.80.0",
-    "@reclaimprotocol/inapp-rn-sdk": "^0.10.0",
+    "@reclaimprotocol/inapp-rn-sdk": "^0.10.3",
     "react": "19.1.0",
     "react-native": "0.80.0",
     "react-native-fs": "^2.20.0",
