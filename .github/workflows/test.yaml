@@ -9,6 +9,8 @@ jobs:
     name: Android - Build and run Detox tests
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      JAVA_TOOL_OPTIONS: -Xmx4g
 
     steps:
       - name: Free Disk Space (Ubuntu)
@@ -32,6 +34,15 @@ jobs:
         with:
           distribution: zulu
           java-version: 23
+
+      - uses: actions/cache@v4
+        id: avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+            ~/.android/debug.keystore
+          key: avd-35-ubuntu-playstore
 
       # copied from: https://github.com/ReactiveCircus/android-emulator-runner/blob/main/.github/workflows/main.yml
       - uses: gradle/actions/setup-gradle@v4
@@ -64,6 +75,7 @@ jobs:
           api-level: 35
           arch: x86_64
           target: playstore
+          profile: Galaxy Nexus
           avd-name: Medium_Phone_API_36.0
           force-avd-creation: false
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -no-metrics
