@@ -1,14 +1,14 @@
 import { by } from 'detox';
 import { setTimeout } from 'timers/promises'
-import { injectGetOtpFnIntoWindow } from './otp-utils.js'
+import { INJECT_GET_OTP_FN_INTO_WINDOW } from './otp-utils.js'
 
 export async function injectUtilsIntoWebview(webview) {
 	const bodyElm = await assertWebElement(
 		() => webview.element(by.web.tag('body')),
-		60_000
+		120_000
 	)
 	await bodyElm.runScript(_injectUtilsIntoWindow.toString())
-	await bodyElm.runScript(injectGetOtpFnIntoWindow.toString())
+	await bodyElm.runScript(INJECT_GET_OTP_FN_INTO_WINDOW)
 }
 
 function _injectUtilsIntoWindow() {

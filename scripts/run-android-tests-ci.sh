@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yarn detox:start &
+npm run detox:start &
 
 METRO_BUNDLER_PID=$!
 

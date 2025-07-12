@@ -69,7 +69,9 @@ function startPollForEmails(onEmail) {
  * Injects "getOtp" function into the window.
  * To be used inside the browser context to extract the OTP from the email content.
  */
-export function injectGetOtpFnIntoWindow() {
+// this is stringified as RN converts async fns to generators, which errors
+// out in the browser context
+export const INJECT_GET_OTP_FN_INTO_WINDOW = `function injectGetOtpFnIntoWindow() {
 	window.getOtp = async(email, extract) => {
 		const emailsRecv = window.emailsRecv || []
 		const now = Date.now()
@@ -94,7 +96,7 @@ export function injectGetOtpFnIntoWindow() {
 
 		throw new Error('OTP not found within 60 seconds')
 	}
-}
+}`
 
 // format the date as yyyy-MM-dd HH:mm:ss
 function formatDate(date) {
