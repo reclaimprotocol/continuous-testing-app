@@ -66,9 +66,6 @@ jobs:
           cd android && ./gradlew clean && cd ..
           npm run detox:android:build
 
-      - name: Start Metro
-        run: npm run detox:start &
-
       - name: Run Tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
@@ -82,4 +79,4 @@ jobs:
           disable-animations: false
           cores: 2
           sdcard-path-or-size: 100M
-          script: npm run detox:android:test:ci
+          script: sh scripts/run-android-tests-ci.sh

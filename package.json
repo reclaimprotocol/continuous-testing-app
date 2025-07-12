@@ -9,8 +9,7 @@
     "detox:start": "E2E_TESTS='true' react-native start",
     "test": "jest",
     "detox:android:build": "detox build -c android.emu.debug",
-    "detox:android:test:ci": "detox test -c android.emu.debug --headless --loglevel verbose",
-    "e2e:test": "detox test -c android.emu.debug"
+    "e2e:test": "detox test -c android.emu.debug --loglevel verbose"
   },
   "dependencies": {
     "@react-native/new-app-screen": "0.80.0",
