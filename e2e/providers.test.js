@@ -37,12 +37,13 @@ describe('Providers', () => {
 
         // hack to find the webview with the actual website. The other webview
         // is likely the attestor JS script.
-        const webMatcher = by.type('io.flutter.embedding.engine.mutatorsstack.FlutterMutatorView')
-            .withDescendant(by.type('android.webkit.WebView'))
-
-        await waitFor(
-            element(webMatcher)
+        const webMatcher = by.type('android.webkit.WebView').withAncestor(
+            by.type(
+                'io.flutter.embedding.engine.mutatorsstack.FlutterMutatorView'
+            )
         )
+
+        await waitFor(element(webMatcher))
             .toBeVisible()
             .withTimeout(60_000);
 

@@ -5,7 +5,7 @@ import { INJECT_GET_OTP_FN_INTO_WINDOW } from './otp-utils.js'
 export async function injectUtilsIntoWebview(webview) {
 	const bodyElm = await assertWebElement(
 		() => webview.element(by.web.tag('body')),
-		90_000
+		45_000
 	)
 	await bodyElm.runScript(_injectUtilsIntoWindow.toString())
 	await bodyElm.runScript(INJECT_GET_OTP_FN_INTO_WINDOW)
