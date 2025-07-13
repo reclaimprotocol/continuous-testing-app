@@ -1,4 +1,3 @@
-import { web } from "detox"
 import { setTimeout } from "timers/promises"
 import { assertWebElementByCss } from "./utils"
 
@@ -10,9 +9,9 @@ export const PROVIDERS = [
 			email: 'delta3@otp-mails.reclaimprotocol.org',
 			password: 'Prov!der@25RP'
 		},
-		async login({ email, password }) {
+		async login(webview, { email, password }) {
 			const cookieAcceptBtn = await assertWebElementByCss(
-				web(),
+				webview,
 				'button[data-ref="cookie.accept-all"]',
 				60_000
 			)
@@ -24,7 +23,7 @@ export const PROVIDERS = [
 			await setTimeout(5000)
 
 			const iframeElem = await assertWebElementByCss(
-				web(),
+				webview,
 				'iframe[data-ref="kyc-iframe"]'
 			)
 

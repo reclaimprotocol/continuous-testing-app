@@ -35,17 +35,24 @@ describe('Providers', () => {
     ) => {
         await connectToProvider(providerId);
 
+        // hack to find the webview with the actual website. The other webview
+        // is likely the attestor JS script.
+        const webMatcher = by.type('io.flutter.embedding.engine.mutatorsstack.FlutterMutatorView')
+            .withDescendant(by.type('android.webkit.WebView'))
+
         await waitFor(
-            element(by.type('android.webkit.WebView')).atIndex(1)
+            element(webMatcher)
         )
             .toBeVisible()
-            .withTimeout(120_000);
+            .withTimeout(60_000);
+
+        const webview = web(webMatcher)
 
         console.log('got webview')
-        await injectUtilsIntoWebview(web())
+        await injectUtilsIntoWebview(webview)
 
         console.log('utils injected into webview')
-        await login(credentials);
+        await login(webview, credentials);
 
         await waitFor(element(by.id('success-text')))
             .toBeVisible()
