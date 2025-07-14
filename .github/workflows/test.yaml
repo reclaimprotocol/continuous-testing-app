@@ -79,4 +79,5 @@ jobs:
           disable-animations: false
           cores: 2
           sdcard-path-or-size: 100M
+          ram-size: '1536M'
           script: sh scripts/run-android-tests-ci.sh
