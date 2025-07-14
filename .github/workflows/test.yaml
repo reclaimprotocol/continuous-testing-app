@@ -77,7 +77,4 @@ jobs:
           force-avd-creation: false
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -no-metrics
           disable-animations: false
-          cores: 2
-          sdcard-path-or-size: 100M
-          ram-size: '1536M'
           script: sh scripts/run-android-tests-ci.sh
