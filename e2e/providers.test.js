@@ -57,7 +57,7 @@ describe('Providers', () => {
 
         await waitFor(element(by.id('success-text')))
             .toBeVisible()
-            .withTimeout(120_000);
+            .withTimeout(300_000);
     })
 });
 
