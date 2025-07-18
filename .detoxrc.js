@@ -49,7 +49,6 @@ module.exports = {
       device: {
         avdName: 'Medium_Phone_API_36.0',// 'Pixel_8a_API_33'
       },
-      bootArgs: '-cores 2'
     }
   },
   configurations: {
